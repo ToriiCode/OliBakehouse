@@ -1,0 +1,95 @@
+/* ==========================================================================
+   Oli's Bakehouse - Hoja de Estilos Personalizada (style.css)
+   ========================================================================== */
+
+/* Barra de Scroll Personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F4EBE1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C68A3E;
+  border-radius: 5px;
+  border: 2px solid #F4EBE1;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C92A42;
+}
+
+/* Transiciones y Clases de Navbar al hacer Scroll */
+#main-header {
+  transition: background-color 0.35s ease, backdrop-filter 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+}
+
+#main-header.nav-scrolled {
+  background-color: rgba(253, 251, 247, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px -2px rgba(44, 30, 22, 0.08);
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+/* Enlaces de Navegación con indicador sutil */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #C92A42;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Animación sutil de rebote para elementos flotantes */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.floating-badge {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Animación de pulso para el botón flotante de WhatsApp */
+@keyframes pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.whatsapp-float {
+  animation: pulse-ring 2.5s infinite;
+}
+
+/* Efectos de Focus Accesibles */
+a:focus-visible, button:focus-visible {
+  outline: 2px solid #C68A3E;
+  outline-offset: 3px;
+}
